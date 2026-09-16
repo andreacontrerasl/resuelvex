@@ -1,0 +1,318 @@
+/* Esquina doblada — el motivo del logo, repetido en las tarjetas del landing.
+   No existe como prop en ningún component kit; es un ::before/::after sobre
+   el Card de Mantine, aplicado vía la prop `className`. */
+.foldCard {
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+}
+
+.foldCard::before {
+  /* el triángulo gris del doblez — el que ya te funciona, sin tocar */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: #E0E2E1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.foldCard::after {
+  /* la sombra hacia adentro, como degradado — no como shadow */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at 100% 0%, rgba(31, 48, 94, 0.22) 0%, rgba(31, 48, 94, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.foldCard2 {
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+}
+
+.foldCard2::before {
+  /* el triángulo gris del doblez — el que ya te funciona, sin tocar */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #E0E2E1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.foldCard2::after {
+  /* la sombra hacia adentro, como degradado — no como shadow */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at 100% 0%, rgba(31, 48, 94, 0.22) 0%, rgba(31, 48, 94, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.foldCard3 {
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+}
+
+.foldCard3::before {
+  /* el triángulo gris del doblez — el que ya te funciona, sin tocar */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background: #E0E2E1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.foldCard3::after {
+  /* la sombra hacia adentro, como degradado — no como shadow */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at 100% 0%, rgba(31, 48, 94, 0.22) 0%, rgba(31, 48, 94, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Blob de gradiente detrás del hero */
+.heroBlob {
+  position: absolute;
+  top: -120px;
+  right: -160px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 191, 179, 0.14) 0%, rgba(0, 191, 179, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Chips flotantes de notificación en el hero */
+.floatChip {
+  position: absolute;
+  z-index: 4;
+}
+.floatChip1 {
+  top: 0;
+  left: 0;
+  animation: float1 6s ease-in-out infinite;
+}
+.floatChip2 {
+  bottom: 36px;
+  left: 6px;
+  animation: float2 7s ease-in-out infinite;
+}
+.floatChip3 {
+  bottom: -6px;
+  right: 210px;
+  animation: float1 6.5s ease-in-out infinite reverse;
+}
+
+.darkStage {
+  background: linear-gradient(160deg, #16233F 0%, #1F305E 100%);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 32px;
+}
+
+.compositionWrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Panel del status — fondo blanco con borde sutil, "otro fondo" dentro del oscuro */
+.panelCard {
+  background: white;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.boardBadge {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Documento — montado a la derecha, encima del panel */
+.docOverlapCard {
+  position: absolute;
+  top: -20px;
+  right: -28px;
+  width: 165px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.docOverlapHeader {
+  height: 34px;
+  background: linear-gradient(135deg, #1F305E, #00BFB3);
+}
+
+.docTinyLine {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--mantine-color-gray-2);
+}
+
+/* Ventana de navegador completa */
+.browserWindow {
+  background: white;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.browserTopbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+}
+
+.browserDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.urlBar {
+  margin-left: 6px;
+  flex: 1;
+  background: var(--mantine-color-gray-0);
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--mantine-color-gray-6);
+}
+
+.browserContent {
+  display: flex;
+}
+
+.sidebar {
+  width: 34px;
+  background: #16233F;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebarIcon {
+  width: 14px;
+  height: 14px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mainContent {
+  flex: 1;
+  background: var(--mantine-color-gray-0);
+  padding: 16px;
+}
+
+.activePill {
+  background: var(--mantine-color-teal-0);
+  color: var(--mantine-color-teal-8);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.statMini {
+  background: white;
+  border: 1px solid var(--mantine-color-gray-2);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.actionPill {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mantine-color-gray-6);
+  background: white;
+  border: 1px solid var(--mantine-color-gray-2);
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+.actionPill[style] {
+  color: white;
+  border: none;
+}
+
+.checkDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--mantine-color-teal-6);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatChip1, .floatChip2, .floatChip3 {
+    animation: none;
+  }
+}
+
+@media (max-width: 48em) {
+  .floatChip1, .floatChip2, .floatChip3 {
+    transform: scale(0.85);
+  }
+  .floatChip1 { top: -10px; left: -6px; }
+  .floatChip2 { bottom: 20px; left: -10px; }
+  .floatChip3 { bottom: -16px; right: 4px; }
+}

@@ -4,6 +4,7 @@ const userSchema = new Schema({
   auth0Id: { type: String, unique: true, sparse: true },
   email: { type: String, required: true, unique: true },
   nombre: { type: String, required: true },
+  cedula: { type: String },
   telefono: String,
   rol: { type: String, enum: ["cliente", "admin"], default: "cliente" },
 }, { timestamps: true });

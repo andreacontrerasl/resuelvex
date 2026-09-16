@@ -5,6 +5,7 @@ import { UnauthorizedError } from "express-jwt";
 import { connect } from "./providers/mongoose";
 import checkJwt from "./middleware/auth";
 import { tramitesRouter } from "./routes/tramites";
+import { usuariosRouter } from "./routes/usuarios";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use((req, _res, next) => {
 app.get("/health", (_req, res) => res.json({ ok: true }));
 
 app.use("/api/tramites", checkJwt, tramitesRouter);
+app.use("/api/usuarios", checkJwt, usuariosRouter);
 
 // express-jwt tira un error especial cuando el token falta o es inválido —
 // sin este handler, Express responde con una página HTML de error en vez de JSON.

@@ -15,10 +15,13 @@
     "turbo": "^2.10.11"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.46.0",
     "express-jwt": "^8.5.1",
     "jwks-rsa": "^4.1.0",
     "mongodb": "^7.5.0",
-    "mongoose": "^9.9.3"
+    "mongoose": "^9.9.3",
+    "resend": "^6.28.1",
+    "tabler": "^1.0.0"
   },
   "packageManager": "npm@11.6.0"
 }
