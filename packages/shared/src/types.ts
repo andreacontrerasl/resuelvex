@@ -1,4 +1,4 @@
-import type { EstadoTramite } from "./estados";
+import type { EstadoTramite } from "./estados.js";
 
 export type Rol = "cliente" | "admin";
 
