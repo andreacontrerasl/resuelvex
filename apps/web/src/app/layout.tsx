@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <ColorSchemeScript />
       </head>
-      <body style={{ backgroundColor: theme.other.paper }}>
+      <body style={{ backgroundColor: theme.other?.paper ?? "#F4F5F7" }}>
         <MantineProvider theme={theme}>
           <Notifications />
           {children}
