@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Términos y condiciones | Resuelvex",
+  title: "Términos y condiciones",
   description:
     "Términos y condiciones de uso del sitio web y de los servicios de gestión de trámites de Resuelvex.",
+  alternates: {
+    canonical: "/terminos",
+  },
 };
 
 const SECTIONS: LegalSection[] = [

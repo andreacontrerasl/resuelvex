@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { getUserSession } from "@/lib/getUserSession";
@@ -9,6 +10,15 @@ import { NameSearch } from "@/components/landing/NameSearch";
 import { Faq } from "@/components/landing/Faq";
 import { CtaFinal } from "@/components/landing/CtaFinal";
 import { Footer } from "@/components/landing/Footer";
+import { DEFAULT_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: HOME_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function LandingPage() {
   const { isLoggedIn, dashboardHref } = await getUserSession();

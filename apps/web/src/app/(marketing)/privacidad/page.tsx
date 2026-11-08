@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Política de privacidad | Resuelvex",
+  title: "Política de privacidad",
   description:
     "Cómo Resuelvex recopila, usa y protege los datos personales de sus clientes.",
+  alternates: {
+    canonical: "/privacidad",
+  },
 };
 
 const SECTIONS: LegalSection[] = [
