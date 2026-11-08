@@ -3,7 +3,7 @@ import { Group, Text, Button } from "@mantine/core";
 export function PanelHeader({ nombre }: { nombre?: string }) {
   return (
     <Group h="100%" px={{ base: "sm", sm: "lg" }} justify="space-between" wrap="nowrap">
-      <img src="/logo-color-no-bg.png" alt="Resuelvex" style={{ height: 30, flexShrink: 0 }} />
+      <img src="/logo-color-no-bg.webp" alt="Resuelvex" style={{ height: 30, flexShrink: 0 }} />
       <Group gap="xs" wrap="nowrap" style={{ minWidth: 0 }}>
         <Text
           size="xs"

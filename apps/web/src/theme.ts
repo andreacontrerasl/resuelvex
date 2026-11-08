@@ -45,5 +45,14 @@ export const theme = createTheme({
     // pero se usan directo en el CSS module para el fold-card y los blobs
     paper: "#F4F5F7",
     fold: "#B0B8C0",
+    // escala de grises para bordes/fondos sutiles del landing, reemplaza los
+    // ~20 grises sueltos que había antes a 1-3 unidades de distancia.
+    // Mantine no expone `other` como CSS var, así que estos mismos valores
+    // están espejados como custom properties en landing.module.css.
+    grayBorderLight: "#F1F4F5",
+    grayBorder: "#E4E7E8",
+    grayBorderStrong: "#CFD4D6",
+    // tamaño compartido para etiquetas uppercase pequeñas (eyebrow text)
+    labelFontSize: "11px",
   },
 });

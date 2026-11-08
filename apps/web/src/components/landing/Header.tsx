@@ -47,9 +47,9 @@ export function Header({ isLoggedIn, dashboardHref }: HeaderProps) {
       >
         {/* Fila de arriba — siempre visible */}
         <Group justify="space-between" style={{ padding: "10px 12px 10px 10px" }}>
-          <img src="/logo-color-no-bg.png" alt="Resuelvex" style={{ height: 30 }} />
+          <img src="/logo-color-no-bg.webp" alt="Resuelvex" style={{ height: 30 }} />
 
-          <Group gap={30} visibleFrom="sm">
+          <Group gap={28} visibleFrom="sm">
             {NAV_LINKS.map((link) => (
               <Anchor key={link.href} href={link.href} c="navy.9" fw={500} size="sm" underline="never">
                 {link.label}

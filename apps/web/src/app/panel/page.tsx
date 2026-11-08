@@ -1,5 +1,11 @@
 import { redirect } from "next/navigation";
-import { Container, Title, Text, Stack } from "@mantine/core";
+import {
+  Container,
+  Group,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { auth0 } from "@/lib/auth0";
 import { apiFetch } from "@/lib/api-client";
 import type { Tramite } from "@resuelvex/shared";
@@ -9,29 +15,92 @@ import { WhatsAppButton } from "@/components/panel/WhatsAppButton";
 
 export default async function PanelPage() {
   const session = await auth0.getSession();
-  if (!session) redirect("/auth/login");
 
-  const usuario: any = await apiFetch("/api/usuarios/sync", { method: "POST" });
-  const tramites: Tramite[] = await apiFetch("/api/tramites/mios");
+  if (!session) {
+    redirect("/auth/login");
+  }
 
-  const primerNombre = usuario?.nombre?.split(" ")[0] || "";
+  const usuario: any = await apiFetch(
+    "/api/usuarios/sync",
+    {
+      method: "POST",
+    }
+  );
+
+  const tramites: Tramite[] = await apiFetch(
+    "/api/tramites/mios"
+  );
+
+  const primerNombre =
+    usuario?.nombre?.split(" ")[0] || "";
 
   return (
-    <Container size="sm" py={{ base: "md", sm: "xl" }} px={{ base: "sm", sm: "md" }}>
-      <Title order={2} c="#1F305E" mb={4} style={{ fontSize: "clamp(20px, 5vw, 28px)" }}>
-        Hola{primerNombre ? `, ${primerNombre}` : ""}
-      </Title>
-      <Text c="dimmed" mb="xl" size="sm">Este es el estado de tu trámite.</Text>
+    <Container
+      size="md"
+      py={{ base: 24, sm: 40 }}
+      px={{ base: "md", sm: "lg" }}
+    >
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
 
-      {tramites.length === 0 && <EmptyTramites />}
+      <Group
+        justify="space-between"
+        align="flex-end"
+        mb={32}
+      >
+        <div>
+          <Title
+            order={2}
+            c="navy.9"
+            style={{
+              fontSize: "clamp(24px, 5vw, 30px)",
+              letterSpacing: "-0.025em",
+            }}
+          >
+            Hola
+            {primerNombre
+              ? `, ${primerNombre}`
+              : ""}
+          </Title>
 
-      <Stack gap="lg">
-        {tramites.map((tramite) => (
-          <TramiteCard key={tramite._id} tramite={tramite} />
-        ))}
-      </Stack>
+          <Text
+            c="dimmed"
+            size="sm"
+            mt={5}
+          >
+            Aquí puedes consultar el avance de{" "}
+            {tramites.length > 1
+              ? "tus trámites."
+              : "tu trámite."}
+          </Text>
+        </div>
+      </Group>
 
-      <WhatsAppButton />
+      {/* =====================================================
+          EMPTY
+      ===================================================== */}
+
+      {tramites.length === 0 && (
+        <EmptyTramites />
+      )}
+
+      {/* =====================================================
+          TRÁMITES
+      ===================================================== */}
+
+      {tramites.length > 0 && (
+        <Stack gap="xl">
+          {tramites.map((tramite) => (
+            <TramiteCard
+              key={tramite._id}
+              tramite={tramite}
+            />
+          ))}
+
+          <WhatsAppButton />
+        </Stack>
+      )}
     </Container>
   );
 }

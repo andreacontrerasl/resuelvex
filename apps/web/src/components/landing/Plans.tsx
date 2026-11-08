@@ -1,74 +1,107 @@
-import { Container, Title, Text, SimpleGrid, Card, Badge, Stack, Group, ThemeIcon, Button, Alert } from "@mantine/core";
-import { IconCheck, IconInfoCircle } from "@tabler/icons-react";
+import {
+  Container,
+  Title,
+  Text,
+  SimpleGrid,
+  Card,
+  Stack,
+  Group,
+  ThemeIcon,
+  Button,
+  Alert,
+  Box,
+} from "@mantine/core";
+import {
+  IconCheck,
+  IconInfoCircle,
+} from "@tabler/icons-react";
 import classes from "./landing.module.css";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 interface Plan {
   title: string;
-  tagline: string;
+  description: string;
   price: string;
-  priceNote?: string;
   included: string[];
   featured?: boolean;
+  pending?: boolean;
   buttonLabel: string;
 }
 
 const PLANS: Plan[] = [
   {
     title: "Solo Empresa",
-    tagline: "Nace tu compañía.",
+    description: "Lo esencial para constituir tu compañía.",
     price: "$375",
     included: [
-      "Redacción del documento constitutivo-estatutario",
-      "Trámite completo ante el Registro Mercantil",
-      "Comisario de confianza y todos sus recaudos",
+      "Documento constitutivo-estatutario",
+      "Trámite ante el Registro Mercantil",
+      "Comisario y sus recaudos",
       "Publicación en diario mercantil",
       "Firma a domicilio",
     ],
-    buttonLabel: "Elegir Solo Empresa",
+    buttonLabel: "Elegir este plan",
   },
   {
     title: "Empresa + RIF",
-    tagline: "Con RIF, ya puedes emitir facturas.",
+    description: "Tu empresa constituida y con RIF.",
     price: "$450",
     included: [
       "Todo lo del plan Solo Empresa",
-      "Inscripción en el Registro de Información Fiscal (RIF)",
+      "Registro de Información Fiscal (RIF)",
     ],
     featured: true,
-    buttonLabel: "Elegir Empresa + RIF",
+    buttonLabel: "Elegir este plan",
   },
   {
     title: "Empresa Completa",
-    tagline: "Con tus libros en regla desde el primer día.",
+    description: "Empresa, RIF y libros mercantiles.",
     price: "$570",
     included: [
       "Todo lo del plan Empresa + RIF",
       "Juego completo de libros mercantiles",
       "Sellado de libros ante el Registro Mercantil",
     ],
-    buttonLabel: "Elegir Empresa Completa",
+    buttonLabel: "Elegir este plan",
   },
   {
     title: "Empresa 100% Lista",
-    tagline: "Nada que tramitar después. Todo resuelto.",
-    price: "desde $570",
-    priceNote: "Monto final pendiente de confirmar",
+    description: "Incluye trámites adicionales para comenzar a operar.",
+    price: "Precio por confirmar",
     included: [
       "Todo lo del plan Empresa Completa",
-      "Inscripción en entes parafiscales: INCES, IVSS, BANAVIH/FAOV",
-      "Patente de industria y comercio ante la alcaldía correspondiente",
+      "Inscripción en INCES, IVSS y BANAVIH/FAOV",
+      "Patente de industria y comercio",
     ],
-    buttonLabel: "Elegir Empresa 100% Lista",
+    pending: true,
+    buttonLabel: "Quiero más información",
   },
 ];
 
-function FeatureRow({ label, dimmed }: { label: string; dimmed?: boolean }) {
+function FeatureRow({
+  label,
+  featured,
+}: {
+  label: string;
+  featured?: boolean;
+}) {
   return (
-    <Group gap="xs" wrap="nowrap" align="flex-start">
-      <ThemeIcon color="teal" variant="filled" size={18} radius="xl" mt={2}>
-        <IconCheck size={12} />
+    <Group gap={9} wrap="nowrap" align="flex-start">
+      <ThemeIcon
+        color="teal"
+        variant={featured ? "filled" : "light"}
+        size={20}
+        radius="xl"
+        mt={1}
+      >
+        <IconCheck size={12} stroke={2.5} />
       </ThemeIcon>
-      <Text size="sm" c={dimmed ? "gray.4" : undefined}>
+
+      <Text
+        size="sm"
+        c={featured ? "gray.3" : "gray.7"}
+        lh={1.45}
+      >
         {label}
       </Text>
     </Group>
@@ -77,66 +110,147 @@ function FeatureRow({ label, dimmed }: { label: string; dimmed?: boolean }) {
 
 export function Plans() {
   return (
-    <Container size="lg" py={88} id="planes">
-      <Stack gap={4} maw={600} mb="xl">
-        <Badge variant="light" color="teal" radius="sm" ff="var(--font-mono)" tt="uppercase" w="fit-content">
-          Planes
-        </Badge>
-        <Title order={2} mt="sm">Elige el plan que se ajusta a lo que necesitas</Title>
-        <Text c="dimmed">Cada plan detalla exactamente lo que incluye, para que decidas con información completa.</Text>
+    <Container size="lg" py={96} id="planes">
+      {/* Header */}
+
+      <Stack gap={8} maw={650} mb={32}>
+        <Title
+          order={2}
+          c="navy"
+          className={classes.sectionTitle}
+        >
+          Elige hasta dónde quieres llegar
+        </Title>
+
+        <Text c="dimmed" size="md" lh={1.65}>
+          Todos los planes constituyen tu empresa. La diferencia está
+          en los trámites adicionales que quieres dejar resueltos desde
+          el inicio.
+        </Text>
       </Stack>
 
-      <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="lg">
+      {/* Plans */}
+
+      <SimpleGrid
+        cols={{ base: 1, sm: 2, lg: 4 }}
+        spacing="lg"
+        align="stretch"
+      >
         {PLANS.map((plan) => (
           <Card
             key={plan.title}
-            className={classes.foldCard}
-            withBorder
+            className={`${classes.planCard} ${
+              plan.featured ? classes.planCardFeatured : ""
+            }`}
             radius="lg"
             padding="xl"
-            style={plan.featured ? { backgroundColor: "var(--mantine-color-navy-9)", color: "white" } : undefined}
           >
-            <Title order={3} c={plan.featured ? "white" : "#1F305E"} mb={2} size="h4">
-              {plan.title}
-            </Title>
-            <Text size="sm" c={plan.featured ? "gray.4" : "dimmed"} mb="md" fs="italic">
-              {plan.tagline}
-            </Text>
+            <Stack h="100%" gap={0}>
+              {/* Plan name */}
 
-            <Group align="baseline" gap={4} mb="lg">
-              <Text fw={800} size="28px" c={plan.featured ? "white" : "#1F305E"}>
-                {plan.price}
+              <Text
+                size="xs"
+                fw={700}
+                c={plan.featured ? "teal.3" : "teal.7"}
+                tt="uppercase"
+                ff="var(--font-mono)"
+                mb={10}
+                style={{ letterSpacing: "0.04em" }}
+              >
+                {plan.title}
               </Text>
-            </Group>
-            {plan.priceNote && (
-              <Text size="xs" c={plan.featured ? "gray.4" : "orange.7"} mb="md" mt={-12}>
-                * {plan.priceNote}
-              </Text>
-            )}
 
-            <Stack gap="xs" mb="lg">
-              {plan.included.map((item) => (
-                <FeatureRow key={item} label={item} dimmed={plan.featured} />
-              ))}
+              {/* Price */}
+
+              <Box mb={14}>
+                <Text
+                  fw={800}
+                  c={plan.featured ? "white" : "navy"}
+                  className={
+                    plan.pending
+                      ? classes.planPendingPrice
+                      : classes.planPrice
+                  }
+                >
+                  {plan.price}
+                </Text>
+              </Box>
+
+              {/* Description */}
+
+              <Text
+                size="sm"
+                c={plan.featured ? "gray.4" : "dimmed"}
+                lh={1.5}
+                mb={24}
+                className={classes.planDescription}
+              >
+                {plan.description}
+              </Text>
+
+              {/* Divider */}
+
+              <Box
+                className={
+                  plan.featured
+                    ? classes.planDividerFeatured
+                    : classes.planDivider
+                }
+                mb={20}
+              />
+
+              {/* Features */}
+
+              <Stack gap={12} mb={28}>
+                {plan.included.map((item) => (
+                  <FeatureRow
+                    key={item}
+                    label={item}
+                    featured={plan.featured}
+                  />
+                ))}
+              </Stack>
+
+              {/* Button */}
+
+              <Button
+                component="a"
+                href={buildWhatsAppLink(
+                  plan.pending
+                    ? `Hola, quiero más información sobre el plan ${plan.title}.`
+                    : `Hola, estoy interesado en el plan ${plan.title} (${plan.price}). ¿Me pueden dar más información?`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                fullWidth
+                color={plan.featured ? "teal" : "navy"}
+                variant={plan.featured ? "filled" : "outline"}
+                radius="xl"
+                mt="auto"
+              >
+                {plan.buttonLabel}
+              </Button>
             </Stack>
-
-            <Button
-              fullWidth
-              color={plan.featured ? "teal" : "navy"}
-              variant={plan.featured ? "filled" : "outline"}
-              radius="xl"
-              mt="auto"
-            >
-              {plan.buttonLabel}
-            </Button>
           </Card>
         ))}
       </SimpleGrid>
 
-      <Alert variant="light" color="teal" radius="md" mt="xl" icon={<IconInfoCircle />}>
-        Ningún plan incluye la Planilla Única Bancaria (tasas oficiales del Registro) ni la
-        reserva de denominación comercial — esos montos se pagan directamente en bolívares, y te
-        confirmamos la cifra exacta antes de proceder al pago.
+      {/* Registry fees */}
+
+      <Alert
+        variant="light"
+        color="teal"
+        radius="md"
+        mt={28}
+        icon={<IconInfoCircle size={20} />}
+        className={classes.planFeesAlert}
+      >
+        <Text size="sm" lh={1.55}>
+          <strong>Los pagos oficiales del Registro se realizan por separado.</strong>{" "}
+          Las tasas de la Planilla Única Bancaria y la reserva de la
+          denominación comercial no están incluidas en el precio del plan.
+          Te indicaremos el monto exacto antes de realizar cada pago.
+        </Text>
       </Alert>
     </Container>
   );

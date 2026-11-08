@@ -5,7 +5,7 @@ export function TramiteDetalleHeader({ tramite }: { tramite: any }) {
   return (
     <Group justify="space-between" mb="xl">
       <div>
-        <Title order={2} c="#1F305E">{tramite.clienteId?.nombre}</Title>
+        <Title order={2} c="navy.9">{tramite.clienteId?.nombre}</Title>
         <Text c="dimmed" size="sm" ff="var(--font-mono)">{tramite.codigo} · Plan {tramite.plan}</Text>
       </div>
       <Badge color="teal" variant="light" size="lg">{ESTADO_LABELS[tramite.estado as keyof typeof ESTADO_LABELS]}</Badge>

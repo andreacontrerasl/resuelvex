@@ -1,89 +1,285 @@
-import { Container, Title, Text, Badge, Stack, Group, Box, Paper, Progress, ThemeIcon } from "@mantine/core";
+import {
+  Container,
+  Title,
+  Text,
+  Stack,
+  Group,
+  Box,
+  Paper,
+  Badge,
+} from "@mantine/core";
+import {
+  IconCheck,
+  IconCircleFilled,
+} from "@tabler/icons-react";
 import classes from "./landing.module.css";
 
-const REASONS = [
-  { num: "01", title: "Información completa desde el inicio", text: "Sabes qué incluye tu plan antes de pagar, sin condiciones que aparezcan después." },
-  { num: "02", title: "Acompañamiento real", text: "Escríbenos por WhatsApp en cualquier momento del proceso y habla directamente con el equipo." },
-  { num: "03", title: "Seguimiento visible", text: "Sabes en qué etapa está tu trámite en todo momento, sin quedarte a la espera sin información." },
-];
-
-const ROWS = [
-  { name: "Postres Doña Inés, C.A.", id: "TRM-2026-0091", status: "En registro", color: "orange", highlight: true },
-  { name: "Taller Ferretero Uribe, C.A.", id: "TRM-2026-0088", status: "Firma coordinada", color: "gray", highlight: false },
-  { name: "Estudio Marín & Asoc., C.A.", id: "TRM-2026-0084", status: "Entregado", color: "teal", highlight: false },
+const STATUS_STEPS = [
+  {
+    label: "Información recibida",
+    status: "completed",
+  },
+  {
+    label: "Documentos preparados",
+    status: "completed",
+  },
+  {
+    label: "Firma completada",
+    status: "completed",
+  },
+  {
+    label: "En Registro Mercantil",
+    status: "current",
+  },
+  {
+    label: "Documentos listos",
+    status: "pending",
+  },
 ];
 
 export function WhyUs() {
   return (
-    <Container size="lg" py={88} id="por-que">
-      <Paper radius="xl" p={{ base: "lg", md: 64 }} className={classes.foldCard2}
-      style={{ backgroundColor: "var(--mantine-color-navy-9)", position: "relative", overflow: "hidden" }}>
-        <Box
-          pos="absolute"
-          bottom={-200}
-          left={-120}
-          w={500}
-          h={500}
-          style={{ borderRadius: "50%", background: "radial-gradient(circle, rgba(0,191,179,0.12) 0%, rgba(0,191,179,0) 70%)" }}
-        />
-        <Group align="center" gap={60} wrap="wrap" style={{ position: "relative", zIndex: 2 }}>
-          <Box flex={1} miw={280}>
-            <Text variant="light" c="#00BFB3" size="xs" ff="var(--font-mono)" tt="uppercase">
-              Por qué Resuelvex
-            </Text>
-            <Title order={1} c="white" mt="md" mb="lg">
-              Un proceso ordenado, no un favor que hay que pedir.
-            </Title>
+    <Container size="lg" py={96} id="por-que">
+      <Paper
+        radius="xl"
+        p={{ base: 28, md: 64 }}
+        className={classes.whyCard}
+      >
+        <Box className={classes.whyGlow} />
 
-            <Stack gap="lg" mb="lg">
-              {REASONS.map((r) => (
-                <Group key={r.num} align="flex-start" wrap="nowrap">
-                  <Text size="xs" ff="var(--font-mono)" c="teal.4" w={28}>{r.num}</Text>
-                  <div>
-                    <Text fw={600} c="white" size="sm" mb={4}>{r.title}</Text>
-                    <Text size="xs" c="gray.5">{r.text}</Text>
-                  </div>
-                </Group>
-              ))}
-            </Stack>
+        <Group
+          gap={48}
+          wrap="wrap"
+          className={classes.whyContent}
+        >
+          {/* LEFT SIDE */}
+<Box flex={1} miw={280}>
+  <Text
+    size="xs"
+    ff="var(--font-mono)"
+    tt="uppercase"
+    c="teal.4"
+    fw={600}
+    className={classes.whyEyebrow}
+  >
+    Por qué Resuelvex
+  </Text>
 
-            <Text size="sm" c="gray.5" style={{ borderTop: "1px solid rgba(255,255,255,0.14)", paddingTop: 20 }}>
-              Resuelvex nace de la experiencia de ver de cerca lo complicado que puede resultar
-              constituir una empresa en Venezuela para quien apenas está comenzando un negocio.
-              Diseñamos un proceso claro y acompañado, para que ese primer paso no se convierta en
-              un obstáculo.
-            </Text>
-          </Box>
+  <Title
+    order={2}
+    c="white"
+    mt={12}
+    mb={20}
+    className={classes.whyTitle}
+  >
+    Constituir tu empresa no debería frenarte.
+  </Title>
 
-          <Paper flex={1} miw={280} radius="lg" p="lg" shadow="xl">
-            <Text size="xs" c="dimmed" mb="md">Panel de trámites</Text>
-            <Stack gap="xs">
-              {ROWS.map((row) => (
-                <Group
-                  key={row.id}
-                  justify="space-between"
-                  p="sm"
-                  style={{
-                    borderRadius: 12,
-                    backgroundColor: row.highlight ? "var(--mantine-color-teal-0)" : "transparent",
-                  }}
+  <Text
+    c="gray.4"
+    size="sm"
+    lh={1.75}
+    maw={480}
+  >
+    Resuelvex nace de la experiencia de ver de cerca lo complicado
+    que puede resultar constituir una empresa en Venezuela para quien
+    apenas está comenzando un negocio.
+  </Text>
+
+  <Text
+    c="gray.4"
+    size="sm"
+    lh={1.75}
+    maw={480}
+    mt={16}
+  >
+    Por eso diseñamos un proceso claro y acompañado, para que puedas
+    resolver este primer paso y concentrarte en empezar tu empresa.
+  </Text>
+
+  <Stack gap={12} mt={28}>
+    <Group gap={10} wrap="nowrap">
+      <Box
+        style={{
+          width: 20,
+          height: 20,
+          borderRadius: "50%",
+          backgroundColor: "rgba(0, 191, 179, 0.14)",
+          color: "var(--mantine-color-teal-4)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <IconCheck size={11} stroke={3} />
+      </Box>
+
+      <Text size="sm" c="gray.2" fw={500}>
+        Pensado para quienes están comenzando
+      </Text>
+    </Group>
+
+    <Group gap={10} wrap="nowrap">
+      <Box
+        style={{
+          width: 20,
+          height: 20,
+          borderRadius: "50%",
+          backgroundColor: "rgba(0, 191, 179, 0.14)",
+          color: "var(--mantine-color-teal-4)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <IconCheck size={11} stroke={3} />
+      </Box>
+
+      <Text size="sm" c="gray.2" fw={500}>
+        Elige solo los trámites que necesitas
+      </Text>
+    </Group>
+
+    <Group gap={10} wrap="nowrap">
+      <Box
+        style={{
+          width: 20,
+          height: 20,
+          borderRadius: "50%",
+          backgroundColor: "rgba(0, 191, 179, 0.14)",
+          color: "var(--mantine-color-teal-4)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <IconCheck size={11} stroke={3} />
+      </Box>
+
+      <Text size="sm" c="gray.2" fw={500}>
+        Acompañamiento durante todo el proceso
+      </Text>
+    </Group>
+  </Stack>
+</Box>
+
+          {/* RIGHT SIDE — TRACKING */}
+          <Paper
+            flex={1}
+            miw={280}
+            maw={410}
+            radius="lg"
+            p={{ base: "lg", md: 28 }}
+            className={classes.trackingCard}
+          >
+            <Group
+              justify="space-between"
+              align="flex-start"
+              mb={28}
+            >
+              <Box>
+                <Text size="xs" c="dimmed" mb={5}>
+                  Tu trámite
+                </Text>
+
+                <Text fw={700} c="navy" size="md">
+                  Inversiones JR, C.A.
+                </Text>
+
+                <Text
+                  size="xs"
+                  c="dimmed"
+                  ff="var(--font-mono)"
+                  mt={2}
                 >
-                  <div>
-                    <Text size="sm" fw={600} c="navy.9">{row.name}</Text>
-                    <Text size="xs" c="dimmed" ff="var(--font-mono)">{row.id}</Text>
-                  </div>
-                  <Badge color={row.color} variant="light" size="sm" ff="var(--font-mono)">
-                    {row.status}
-                  </Badge>
-                </Group>
-              ))}
+                  TRM-2026-0091
+                </Text>
+              </Box>
+
+              <Badge
+                color="teal"
+                variant="light"
+                radius="xl"
+                size="sm"
+              >
+                En proceso
+              </Badge>
+            </Group>
+
+            <Stack gap={0}>
+              {STATUS_STEPS.map((step, index) => {
+                const completed = step.status === "completed";
+                const current = step.status === "current";
+
+                return (
+                  <Box
+                    key={step.label}
+                    className={classes.trackingStep}
+                  >
+                    <Box className={classes.trackingIndicator}>
+                      {completed ? (
+                        <Box className={classes.trackingCompleted}>
+                          <IconCheck size={11} stroke={3} />
+                        </Box>
+                      ) : current ? (
+                        <Box className={classes.trackingCurrent}>
+                          <IconCircleFilled size={8} />
+                        </Box>
+                      ) : (
+                        <Box className={classes.trackingPending} />
+                      )}
+
+                      {index < STATUS_STEPS.length - 1 && (
+                        <Box
+                          className={`${classes.trackingLine} ${
+                            completed
+                              ? classes.trackingLineCompleted
+                              : ""
+                          }`}
+                        />
+                      )}
+                    </Box>
+
+                    <Box pb={24}>
+                      <Text
+                        size="sm"
+                        fw={current ? 650 : 500}
+                        c={
+                          step.status === "pending"
+                            ? "gray.5"
+                            : "navy"
+                        }
+                      >
+                        {step.label}
+                      </Text>
+
+                      {current && (
+                        <Text size="xs" c="teal.7" mt={3}>
+                          Etapa actual
+                        </Text>
+                      )}
+                    </Box>
+                  </Box>
+                );
+              })}
             </Stack>
-            <Box mt="lg">
-              <Progress value={64} color="teal" size="sm" radius="xl" />
-              <Group justify="space-between" mt={8}>
-                <Text size="xs" c="dimmed">12 trámites activos</Text>
-                <Text size="xs" c="dimmed">64% en proceso</Text>
-              </Group>
+
+            <Box className={classes.trackingUpdate}>
+              <Text size="xs" c="dimmed">
+                Última actualización
+              </Text>
+
+              <Text
+                size="xs"
+                fw={600}
+                c="navy"
+                mt={2}
+              >
+                28 sep · 10:42 a. m.
+              </Text>
             </Box>
           </Paper>
         </Group>

@@ -1,20 +1,31 @@
-import { Button } from "@mantine/core";
+import {
+  Button,
+  Center,
+} from "@mantine/core";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function WhatsAppButton() {
   return (
-    <Button
-      component="a"
-      href="https://wa.me/58XXXXXXXXXX"
-      target="_blank"
-      variant="light"
-      color="teal"
-      radius="xl"
-      leftSection={<IconBrandWhatsapp size={16} />}
-      fullWidth
-      mt={10}
-    >
-      ¿Dudas sobre tu trámite? Escríbenos
-    </Button>
+    <Center>
+      <Button
+        component="a"
+        href={buildWhatsAppLink(
+          "Hola, tengo una duda sobre mi trámite en Resuelvex."
+        )}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="subtle"
+        color="teal"
+        radius="xl"
+        leftSection={
+          <IconBrandWhatsapp
+            size={17}
+          />
+        }
+      >
+        ¿Tienes dudas? Escríbenos por WhatsApp
+      </Button>
+    </Center>
   );
 }

@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { auth0 } from "@/lib/auth0";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { AdminNav } from "@/components/admin/AdminNav";
+import { theme } from "@/theme";
 
 function isAdmin(session: any): boolean {
   try {
@@ -21,7 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!isAdmin(session)) redirect("/panel");
 
   return (
-    <Box mih="100vh" style={{ backgroundColor: "#F4F5F7" }}>
+    <Box mih="100vh" style={{ backgroundColor: theme.other?.paper }}>
       <Box
         component="header"
         h={64}

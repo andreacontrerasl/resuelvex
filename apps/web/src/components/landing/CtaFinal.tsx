@@ -1,24 +1,77 @@
-import { Container, Paper, Title, Text, Group, Button } from "@mantine/core";
+import {
+  Container,
+  Paper,
+  Title,
+  Text,
+  Group,
+  Button,
+} from "@mantine/core";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function CtaFinal() {
   return (
     <Container size="lg" py={88}>
-      <Paper radius="xl" p={{ base: "xl", md: 64 }} ta="center" style={{ backgroundColor: "var(--mantine-color-teal-5)" }}>
-        <Text size="xs" ff="var(--font-mono)" tt="uppercase" c="navy.9" fw={600} mb="xs">
-          Empecemos
-        </Text>
-        <Title order={2} c="navy.9" mb="xs" mx="auto" maw={620}>
-          ¿Listo para dar el siguiente paso?
+      <Paper
+        radius="xl"
+        p={{ base: "xl", md: 64 }}
+        ta="center"
+        style={{
+          backgroundColor: "var(--mantine-color-teal-5)",
+        }}
+      >
+        <Title
+          order={2}
+          c="navy.9"
+          mb="sm"
+          mx="auto"
+          maw={620}
+          style={{
+            fontSize: "clamp(30px, 3vw, 42px)",
+            lineHeight: 1.12,
+            letterSpacing: "-0.025em",
+          }}
+        >
+          Empieza a constituir tu empresa.
         </Title>
-        <Text c="navy.8" mb="lg" mx="auto" maw={460}>
-          Revisa los planes y completa tu formulario cuando estés listo.
+
+        <Text
+          c="navy.8"
+          size="md"
+          lh={1.6}
+          mb={28}
+          mx="auto"
+          maw={500}
+        >
+          Elige el plan que necesitas y nosotros te acompañamos durante todo
+          el proceso.
         </Text>
-        <Group justify="center">
-          <Button component="a" href="#planes" color="navy" radius="xl">
-            Ver planes
+
+        <Group justify="center" gap="sm">
+          <Button
+            component="a"
+            href="#planes"
+            color="navy"
+            radius="xl"
+            size="md"
+            px={28}
+          >
+            Ver planes y precios
           </Button>
-          <Button component="a" href="#" variant="outline" color="navy" radius="xl">
-            Escríbenos por WhatsApp
+
+          <Button
+            component="a"
+            href={buildWhatsAppLink(
+              "Hola, quiero más información sobre cómo constituir mi empresa."
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outline"
+            color="navy"
+            radius="xl"
+            size="md"
+            px={28}
+          >
+            Hablar por WhatsApp
           </Button>
         </Group>
       </Paper>
