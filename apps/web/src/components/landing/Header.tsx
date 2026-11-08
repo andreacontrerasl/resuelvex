@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Group, Anchor, Button, Box, Burger, Collapse, Stack, Divider } from "@mantine/core";
 
 const NAV_LINKS = [
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#planes", label: "Planes" },
-  { href: "#por-que", label: "Por qué Resuelvex" },
-  { href: "#faq", label: "Preguntas" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/#planes", label: "Planes" },
+  { href: "/#por-que", label: "Por qué Resuelvex" },
+  { href: "/#faq", label: "Preguntas" },
 ];
 
 interface HeaderProps {
@@ -67,7 +67,7 @@ export function Header({ isLoggedIn, dashboardHref }: HeaderProps) {
                 <Button component="a" href="/auth/login" variant="subtle" color="navy" radius="xl" size="sm">
                   Iniciar sesión
                 </Button>
-                <Button component="a" href="#planes" color="navy" radius="xl" size="sm">
+                <Button component="a" href="/#planes" color="navy" radius="xl" size="sm">
                   Ver planes
                 </Button>
               </>
@@ -113,7 +113,7 @@ export function Header({ isLoggedIn, dashboardHref }: HeaderProps) {
                     <Button component="a" href="/auth/login" variant="outline" color="navy" radius="xl" fullWidth onClick={close}>
                       Iniciar sesión
                     </Button>
-                    <Button component="a" href="#planes" color="navy" radius="xl" fullWidth onClick={close}>
+                    <Button component="a" href="/#planes" color="navy" radius="xl" fullWidth onClick={close}>
                       Ver planes
                     </Button>
                   </>

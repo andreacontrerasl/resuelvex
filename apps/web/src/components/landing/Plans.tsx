@@ -134,7 +134,6 @@ export function Plans() {
       <SimpleGrid
         cols={{ base: 1, sm: 2, lg: 4 }}
         spacing="lg"
-        align="stretch"
       >
         {PLANS.map((plan) => (
           <Card

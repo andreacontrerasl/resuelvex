@@ -162,7 +162,7 @@ export function Footer() {
             </Text>
 
             <Anchor
-              href="#"
+              href="/terminos"
               c="gray.3"
               size="sm"
               underline="never"
@@ -171,7 +171,7 @@ export function Footer() {
             </Anchor>
 
             <Anchor
-              href="#"
+              href="/privacidad"
               c="gray.3"
               size="sm"
               underline="never"
