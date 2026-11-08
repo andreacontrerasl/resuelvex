@@ -174,6 +174,7 @@ export function WhyUs() {
             radius="lg"
             p={{ base: "lg", md: 28 }}
             className={classes.trackingCard}
+            aria-hidden="true"
           >
             <Group
               justify="space-between"
@@ -181,7 +182,7 @@ export function WhyUs() {
               mb={28}
             >
               <Box>
-                <Text size="xs" c="dimmed" mb={5}>
+                <Text size="xs" c="gray.7" mb={5}>
                   Tu trámite
                 </Text>
 
@@ -191,7 +192,7 @@ export function WhyUs() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   ff="var(--font-mono)"
                   mt={2}
                 >
@@ -257,7 +258,7 @@ export function WhyUs() {
                       </Text>
 
                       {current && (
-                        <Text size="xs" c="teal.7" mt={3}>
+                        <Text size="xs" c="teal.9" mt={3}>
                           Etapa actual
                         </Text>
                       )}
@@ -268,7 +269,7 @@ export function WhyUs() {
             </Stack>
 
             <Box className={classes.trackingUpdate}>
-              <Text size="xs" c="dimmed">
+              <Text size="xs" c="gray.7">
                 Última actualización
               </Text>
 

@@ -7,7 +7,7 @@ export function PanelHeader({ nombre }: { nombre?: string }) {
       <Group gap="xs" wrap="nowrap" style={{ minWidth: 0 }}>
         <Text
           size="xs"
-          c="dimmed"
+          c="gray.7"
           visibleFrom="xs"
           style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 160 }}
         >

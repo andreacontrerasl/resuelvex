@@ -21,7 +21,7 @@ export function PlanIncluye({
     <Box>
       <Text
         size="xs"
-        c="dimmed"
+        c="gray.7"
         fw={650}
         tt="uppercase"
         style={{
@@ -73,7 +73,7 @@ export function PlanIncluye({
 
               <Text
                 size="xs"
-                c="dimmed"
+                c="gray.7"
                 lh={1.45}
               >
                 {item}

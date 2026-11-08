@@ -53,13 +53,13 @@ export function Hero() {
               }}
             >
               Constituye tu empresa en Venezuela,{" "}
-              <Text component="span" c="teal.6" inherit>
+              <Text component="span" c="teal.8" inherit>
                 sin complicarte.
               </Text>
             </Title>
 
             <Text
-              c="dimmed"
+              c="gray.7"
               size="md"
               mb="xl"
               maw={520}
@@ -106,7 +106,7 @@ export function Hero() {
                   color="var(--mantine-color-teal-7)"
                 />
 
-                <Text size="sm" c="dimmed">
+                <Text size="sm" c="gray.7">
                   Precio claro
                 </Text>
               </Group>
@@ -118,7 +118,7 @@ export function Hero() {
                   color="var(--mantine-color-teal-7)"
                 />
 
-                <Text size="sm" c="dimmed">
+                <Text size="sm" c="gray.7">
                   Firma a domicilio
                 </Text>
               </Group>
@@ -130,7 +130,7 @@ export function Hero() {
                   color="var(--mantine-color-teal-7)"
                 />
 
-                <Text size="sm" c="dimmed">
+                <Text size="sm" c="gray.7">
                   Seguimiento online
                 </Text>
               </Group>
@@ -145,6 +145,7 @@ export function Hero() {
             pos="relative"
             className={classes.darkStage}
             h={{ base: 500, md: 510 }}
+            aria-hidden="true"
           >
             {/* Background */}
 
@@ -247,7 +248,7 @@ export function Hero() {
 
                     <Text
                       size="7px"
-                      c="dimmed"
+                      c="gray.7"
                       ff="var(--font-mono)"
                       mt={1}
                     >
@@ -265,7 +266,7 @@ export function Hero() {
                 >
                   <Text
                     size="9px"
-                    c="dimmed"
+                    c="gray.7"
                     ff="var(--font-mono)"
                     tt="uppercase"
                     style={{
@@ -331,7 +332,7 @@ export function Hero() {
                     <Text
                       size="7px"
                       fw={700}
-                      c="teal.7"
+                      c="teal.9"
                       ff="var(--font-mono)"
                     >
                       01
@@ -375,7 +376,7 @@ export function Hero() {
                     <Text
                       size="7px"
                       fw={700}
-                      c="teal.7"
+                      c="teal.9"
                       ff="var(--font-mono)"
                     >
                       02
@@ -419,7 +420,7 @@ export function Hero() {
                     <Text
                       size="7px"
                       fw={700}
-                      c="teal.7"
+                      c="teal.9"
                       ff="var(--font-mono)"
                     >
                       03
@@ -466,7 +467,7 @@ export function Hero() {
 
                     <Text
                       size="6px"
-                      c="dimmed"
+                      c="gray.7"
                       ta="center"
                       mt={4}
                     >
@@ -481,7 +482,7 @@ export function Hero() {
 
                     <Text
                       size="6px"
-                      c="dimmed"
+                      c="gray.7"
                       ta="center"
                       mt={4}
                     >
@@ -492,7 +493,7 @@ export function Hero() {
 
                 <Text
                   size="6px"
-                  c="gray.5"
+                  c="gray.7"
                   ff="var(--font-mono)"
                   ta="center"
                   mt={16}
@@ -535,7 +536,7 @@ export function Hero() {
 
                   <Text
                     size="8px"
-                    c="dimmed"
+                    c="gray.7"
                     mt={2}
                   >
                     Listos para la firma
@@ -570,7 +571,7 @@ export function Hero() {
                     <Text
                       size="8px"
                       fw={700}
-                      c="teal.7"
+                      c="teal.9"
                       ff="var(--font-mono)"
                       tt="uppercase"
                       style={{

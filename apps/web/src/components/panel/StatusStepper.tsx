@@ -220,7 +220,7 @@ export function StatusStepper({
                       ? "orange.8"
                       : active || done
                         ? "navy.9"
-                        : "dimmed"
+                        : "gray.7"
                   }
                 >
                   {ESTADO_LABELS[estado]}
@@ -242,7 +242,7 @@ export function StatusStepper({
                   !activeObservation && (
                     <Text
                       size="xs"
-                      c="dimmed"
+                      c="gray.7"
                       mt={3}
                     >
                       Etapa actual

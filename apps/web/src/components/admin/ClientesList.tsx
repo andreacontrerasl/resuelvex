@@ -176,7 +176,7 @@ export function ClientesList({
 
             <Text
               size="sm"
-              c="dimmed"
+              c="gray.7"
               ta="center"
               lh={1.55}
             >
@@ -239,7 +239,7 @@ export function ClientesList({
         {search && (
           <Text
             size="xs"
-            c="dimmed"
+            c="gray.7"
           >
             de {clientes.length} en total
           </Text>
@@ -283,7 +283,7 @@ export function ClientesList({
 
               <Text
                 size="sm"
-                c="dimmed"
+                c="gray.7"
                 ta="center"
               >
                 Prueba buscando otro nombre,
@@ -398,7 +398,7 @@ export function ClientesList({
 
                           <Text
                             size="sm"
-                            c="dimmed"
+                            c="gray.7"
                             truncate
                           >
                             {cliente.email}
@@ -422,7 +422,7 @@ export function ClientesList({
                           <Text
                             size="11px"
                             fw={600}
-                            c="dimmed"
+                            c="gray.7"
                             tt="uppercase"
                             style={{
                               letterSpacing:
@@ -450,7 +450,7 @@ export function ClientesList({
                           <Text
                             size="11px"
                             fw={600}
-                            c="dimmed"
+                            c="gray.7"
                             tt="uppercase"
                             style={{
                               letterSpacing:
@@ -488,7 +488,7 @@ export function ClientesList({
                           <Text
                             size="11px"
                             fw={600}
-                            c="dimmed"
+                            c="gray.7"
                             tt="uppercase"
                             style={{
                               letterSpacing:

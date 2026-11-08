@@ -341,7 +341,7 @@ export function NuevoTramiteForm() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   mt={1}
                 >
                   Selecciona a quién pertenece
@@ -411,7 +411,7 @@ export function NuevoTramiteForm() {
 
                     <Text
                       size="xs"
-                      c="dimmed"
+                      c="gray.7"
                       truncate
                     >
                       {selectedCliente.email}
@@ -456,7 +456,7 @@ export function NuevoTramiteForm() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   mt={1}
                 >
                   Indica la empresa que se va a
@@ -513,7 +513,7 @@ export function NuevoTramiteForm() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   mt={1}
                 >
                   Define el plan y cualquier

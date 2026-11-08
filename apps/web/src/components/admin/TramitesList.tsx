@@ -291,7 +291,7 @@ export function TramitesList({
 
             <Text
               size="sm"
-              c="dimmed"
+              c="gray.7"
               ta="center"
               lh={1.55}
             >
@@ -379,7 +379,7 @@ export function TramitesList({
         {(search || estado) && (
           <Text
             size="xs"
-            c="dimmed"
+            c="gray.7"
           >
             de {typedTramites.length} en total
           </Text>
@@ -424,7 +424,7 @@ export function TramitesList({
 
               <Text
                 size="sm"
-                c="dimmed"
+                c="gray.7"
                 ta="center"
               >
                 Prueba buscando otra
@@ -538,7 +538,7 @@ export function TramitesList({
 
                         <Text
                           size="sm"
-                          c="dimmed"
+                          c="gray.7"
                           truncate
                           mt={1}
                         >
@@ -554,7 +554,7 @@ export function TramitesList({
                         >
                           <Text
                             size="xs"
-                            c="dimmed"
+                            c="gray.7"
                             ff="var(--font-mono)"
                           >
                             {tramite.codigo}
@@ -562,14 +562,14 @@ export function TramitesList({
 
                           <Text
                             size="xs"
-                            c="gray.4"
+                            c="gray.7"
                           >
                             •
                           </Text>
 
                           <Text
                             size="xs"
-                            c="dimmed"
+                            c="gray.7"
                           >
                             {formatPlan(
                               tramite.plan
@@ -614,7 +614,7 @@ export function TramitesList({
                         {lastUpdate && (
                           <Text
                             size="11px"
-                            c="dimmed"
+                            c="gray.7"
                           >
                             Actualizado{" "}
                             {lastUpdate}

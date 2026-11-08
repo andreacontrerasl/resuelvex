@@ -37,7 +37,7 @@ export default function NuevoTramitePage() {
             <Text
               size="sm"
               fw={500}
-              c="dimmed"
+              c="gray.7"
             >
               Volver a trámites
             </Text>
@@ -61,7 +61,7 @@ export default function NuevoTramitePage() {
         </Title>
 
         <Text
-          c="dimmed"
+          c="gray.7"
           size="sm"
           mt={5}
         >

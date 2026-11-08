@@ -141,7 +141,7 @@ export function TramiteCard({
             >
               <Text
                 size="11px"
-                c="dimmed"
+                c="gray.7"
                 fw={650}
                 tt="uppercase"
                 mb={4}
@@ -191,7 +191,7 @@ export function TramiteCard({
             <Box>
               <Text
                 size="xs"
-                c="dimmed"
+                c="gray.7"
                 mb={5}
               >
                 Estado actual
@@ -212,7 +212,7 @@ export function TramiteCard({
             {fechaActualizacion && (
               <Text
                 size="xs"
-                c="dimmed"
+                c="gray.7"
                 ta="right"
               >
                 Actualizado el
@@ -242,7 +242,7 @@ export function TramiteCard({
           >
             <Text
               size="xs"
-              c="dimmed"
+              c="gray.7"
             >
               Progreso del trámite
             </Text>
@@ -285,7 +285,7 @@ export function TramiteCard({
 
         <Text
           size="xs"
-          c="dimmed"
+          c="gray.7"
           mt={3}
           mb="lg"
         >

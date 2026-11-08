@@ -65,7 +65,7 @@ export default async function PanelPage() {
           </Title>
 
           <Text
-            c="dimmed"
+            c="gray.7"
             size="sm"
             mt={5}
           >

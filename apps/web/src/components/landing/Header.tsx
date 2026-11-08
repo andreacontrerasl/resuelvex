@@ -80,6 +80,7 @@ export function Header({ isLoggedIn, dashboardHref }: HeaderProps) {
             size="sm"
             color="var(--mantine-color-navy-9)"
             hiddenFrom="sm"
+            aria-label={opened ? "Cerrar menú" : "Abrir menú"}
           />
         </Group>
 

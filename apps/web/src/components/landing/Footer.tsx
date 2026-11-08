@@ -178,6 +178,15 @@ export function Footer() {
             >
               Política de privacidad
             </Anchor>
+
+            <Anchor
+              href="/cookies"
+              c="gray.3"
+              size="sm"
+              underline="never"
+            >
+              Política de cookies
+            </Anchor>
           </Stack>
         </SimpleGrid>
 

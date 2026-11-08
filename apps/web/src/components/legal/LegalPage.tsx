@@ -34,7 +34,7 @@ export async function LegalPage({
         <Stack gap={8} mb={48} maw={680}>
           <Text
             size="xs"
-            c="teal.7"
+            c="teal.9"
             tt="uppercase"
             ff="var(--font-mono)"
             fw={600}
@@ -55,7 +55,7 @@ export async function LegalPage({
             {title}
           </Title>
 
-          <Text size="sm" c="dimmed">
+          <Text size="sm" c="gray.7">
             Última actualización: {updatedAt}
           </Text>
 
@@ -82,7 +82,7 @@ export async function LegalPage({
                   <Stack gap="xs">
                     {section.list.map((item) => (
                       <Group key={item} gap="xs" wrap="nowrap" align="flex-start">
-                        <Text c="teal.7" size="sm" lh={1.7}>
+                        <Text c="teal.9" size="sm" lh={1.7}>
                           •
                         </Text>
                         <Text c="gray.7" size="sm" lh={1.7}>

@@ -93,7 +93,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Cookies y tecnologías similares",
     paragraphs: [
-      "Nuestro sitio puede utilizar cookies u otras tecnologías similares para recordar tu sesión, mantenerte conectado en el panel de cliente y entender cómo se utiliza el sitio. Puedes configurar tu navegador para rechazar cookies, aunque algunas funciones del sitio podrían dejar de funcionar correctamente.",
+      "Usamos únicamente la cookie de sesión necesaria para mantenerte conectado a tu panel de cliente. No usamos cookies de analítica ni de publicidad. Puedes ver el detalle completo en nuestra Política de Cookies (resuelvex.com/cookies).",
     ],
   },
   {

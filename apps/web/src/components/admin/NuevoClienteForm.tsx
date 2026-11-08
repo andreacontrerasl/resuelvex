@@ -175,7 +175,7 @@ export function NuevoClienteForm() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   mt={1}
                 >
                   Datos básicos para identificar al cliente.
@@ -256,7 +256,7 @@ export function NuevoClienteForm() {
 
                 <Text
                   size="xs"
-                  c="dimmed"
+                  c="gray.7"
                   mt={1}
                 >
                   Información que usaremos para contactar al cliente.

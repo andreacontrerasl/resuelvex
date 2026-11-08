@@ -84,7 +84,7 @@ export function Faq() {
           Lo que más nos preguntan
         </Title>
 
-        <Text c="dimmed" size="md" lh={1.65}>
+        <Text c="gray.7" size="md" lh={1.65}>
           Resolvemos algunas de las dudas más comunes antes de comenzar el
           proceso.
         </Text>
@@ -133,11 +133,11 @@ export function Faq() {
                       alignItems: "center",
                       justifyContent: "center",
                       backgroundColor: isOpen
-                        ? "var(--mantine-color-teal-6)"
+                        ? "var(--mantine-color-teal-8)"
                         : "var(--mantine-color-teal-0)",
                       color: isOpen
                         ? "white"
-                        : "var(--mantine-color-teal-7)",
+                        : "var(--mantine-color-teal-9)",
                       transition:
                         "background-color 180ms ease, color 180ms ease",
                     }}
@@ -164,7 +164,7 @@ export function Faq() {
                 >
                   <Text
                     size="sm"
-                    c="dimmed"
+                    c="gray.7"
                     lh={1.65}
                   >
                     {item.a}

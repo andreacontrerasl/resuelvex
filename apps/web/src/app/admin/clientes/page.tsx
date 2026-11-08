@@ -39,7 +39,7 @@ export default async function AdminClientesPage() {
           </Title>
 
           <Text
-            c="dimmed"
+            c="gray.7"
             size="sm"
             mt={5}
           >

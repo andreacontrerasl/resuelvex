@@ -54,7 +54,7 @@ export function HowItWorks() {
           </Title>
 
           <Text
-            c="dimmed"
+            c="gray.7"
             size="md"
             className={classes.sectionDescription}
           >
@@ -95,7 +95,7 @@ export function HowItWorks() {
                 </Text>
 
                 <Text
-                  c="dimmed"
+                  c="gray.7"
                   className={classes.processText}
                 >
                   {step.text}

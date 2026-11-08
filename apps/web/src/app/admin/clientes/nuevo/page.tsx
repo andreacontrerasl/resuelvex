@@ -37,7 +37,7 @@ export default function NuevoClientePage() {
             <Text
               size="sm"
               fw={500}
-              c="dimmed"
+              c="gray.7"
             >
               Volver a clientes
             </Text>
@@ -61,7 +61,7 @@ export default function NuevoClientePage() {
         </Title>
 
         <Text
-          c="dimmed"
+          c="gray.7"
           size="sm"
           mt={5}
         >

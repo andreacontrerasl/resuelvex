@@ -88,7 +88,7 @@ function FeatureRow({
   return (
     <Group gap={9} wrap="nowrap" align="flex-start">
       <ThemeIcon
-        color="teal"
+        color={featured ? "teal.8" : "teal"}
         variant={featured ? "filled" : "light"}
         size={20}
         radius="xl"
@@ -122,7 +122,7 @@ export function Plans() {
           Elige hasta dónde quieres llegar
         </Title>
 
-        <Text c="dimmed" size="md" lh={1.65}>
+        <Text c="gray.7" size="md" lh={1.65}>
           Todos los planes constituyen tu empresa. La diferencia está
           en los trámites adicionales que quieres dejar resueltos desde
           el inicio.
@@ -150,7 +150,7 @@ export function Plans() {
               <Text
                 size="xs"
                 fw={700}
-                c={plan.featured ? "teal.3" : "teal.7"}
+                c={plan.featured ? "teal.3" : "teal.9"}
                 tt="uppercase"
                 ff="var(--font-mono)"
                 mb={10}
@@ -179,7 +179,7 @@ export function Plans() {
 
               <Text
                 size="sm"
-                c={plan.featured ? "gray.4" : "dimmed"}
+                c={plan.featured ? "gray.4" : "gray.7"}
                 lh={1.5}
                 mb={24}
                 className={classes.planDescription}
