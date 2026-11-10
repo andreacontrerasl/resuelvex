@@ -32,7 +32,7 @@ const STEPS = [
   {
     num: "05",
     title: "Recibe tus documentos",
-    text: "Una vez constituida tu empresa, recibes la documentación correspondiente en físico y digital.",
+    text: "Una vez constituida tu empresa, recibes la documentación correspondiente en físico.",
   },
 ];
 
@@ -50,7 +50,7 @@ export function HowItWorks() {
             c="navy"
             className={classes.sectionTitle}
           >
-            Así funciona Resuelvex
+            Así funciona Resuelvex.
           </Title>
 
           <Text

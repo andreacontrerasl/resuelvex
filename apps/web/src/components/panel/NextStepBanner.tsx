@@ -7,6 +7,7 @@ import {
 import {
   IconAlertCircle,
   IconCheck,
+  IconCreditCard,
   IconInfoCircle,
 } from "@tabler/icons-react";
 import {
@@ -25,14 +26,20 @@ export function NextStepBanner({
   const observacion =
     estado === "observaciones";
 
+  const pagoPendiente =
+    estado === "pago_reserva_nombre" ||
+    estado === "pago_registro";
+
   const entregado =
     estado === "entregado";
 
   const color = observacion
     ? "orange"
-    : entregado
-      ? "green"
-      : "teal";
+    : pagoPendiente
+      ? "grape"
+      : entregado
+        ? "green"
+        : "teal";
 
   return (
     <Paper
@@ -60,6 +67,11 @@ export function NextStepBanner({
               size={17}
               stroke={1.8}
             />
+          ) : pagoPendiente ? (
+            <IconCreditCard
+              size={17}
+              stroke={1.8}
+            />
           ) : entregado ? (
             <IconCheck
               size={17}
@@ -80,15 +92,19 @@ export function NextStepBanner({
             c={
               observacion
                 ? "orange.9"
-                : "navy.9"
+                : pagoPendiente
+                  ? "grape.9"
+                  : "navy.9"
             }
             mb={3}
           >
             {observacion
               ? "Hay una observación"
-              : entregado
-                ? "Proceso completado"
-                : "Sobre tu trámite"}
+              : pagoPendiente
+                ? "Pago pendiente"
+                : entregado
+                  ? "Proceso completado"
+                  : "Sobre tu trámite"}
           </Text>
 
           <Text

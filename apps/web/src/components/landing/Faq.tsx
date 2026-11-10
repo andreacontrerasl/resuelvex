@@ -21,31 +21,39 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto tiempo toma constituir mi empresa?",
-    a: "En condiciones normales, el proceso ante el Registro toma aproximadamente un mes desde que se presenta el expediente. Es un tiempo estimado, ya que el plazo final depende de los tiempos internos del Registro Mercantil.",
+    a: "Aproximadamente un mes desde que presentamos tu expediente en el Registro. Es un estimado: los tiempos dependen del Registro Mercantil y no de nosotros. Puedes ver en todo momento en qué etapa va tu trámite.",
+  },
+  {
+    q: "¿Cómo sé que mi trámite está avanzando?",
+    a: "Desde tu cuenta ves en qué etapa está tu trámite, y te escribimos por correo en cada momento importante: cuando el nombre está aprobado, cuando el documento está listo para firmar, cuando lo presentamos en el Registro y cuando tu empresa está lista.",
   },
   {
     q: "¿Qué está incluido en el precio del plan?",
-    a: "Cada plan indica exactamente los trámites y servicios que incluye. Todos incluyen la gestión ante el Registro Mercantil, la firma a domicilio, el comisario y sus recaudos, y la publicación mercantil.",
+    a: "Todo lo que aparece en cada plan: documentos, firma a domicilio, comisario, trámite, publicación y entrega. El único pago aparte son los pagos oficiales al Registro.",
   },
   {
     q: "¿Hay algún pago adicional?",
-    a: "Sí. Las tasas oficiales del Registro Mercantil y la reserva de la denominación comercial se pagan por separado y no están incluidas en el precio del plan. Te indicaremos el monto correspondiente antes de realizar cada pago.",
+    a: "Sí. Las tasas oficiales del Registro Mercantil y la reserva de la denominación comercial se pagan por separado y no están incluidas en el precio del plan. Antes de cada pago te decimos el monto exacto y coordinamos el pago contigo. Si el Registro pide correcciones, las hacemos sin costo adicional.",
+  },
+  {
+    q: "¿Cómo funcionan los pagos al Registro Mercantil?",
+    a: "Los derechos de registro (Planilla Única Bancaria) y la reserva del nombre de tu empresa son pagos oficiales que se hacen directamente al Registro Mercantil, por eso no forman parte del precio del plan. Antes de cada pago te decimos el monto exacto (posterior a la emisión y envío de la planilla) y coordinamos el pago contigo, para que no tengas que hacerlo solo.",
   },
   {
     q: "¿Qué medios de pago aceptan?",
-    a: "Puedes pagar tu plan utilizando los medios de pago disponibles al momento de iniciar el proceso, incluyendo opciones en dólares y bolívares.",
+    a: "Se puede pagar en dólares o bolívares (Zelle, efectivo, transferencia bancaria y pago móvil).",
   },
   {
     q: "¿Qué pasa si el nombre que quiero para mi empresa no está disponible?",
-    a: "Te ayudamos a continuar con nuevas opciones hasta encontrar una denominación disponible para tu empresa.",
+    a: "Nos das tres opciones en orden de preferencia. Si ninguna está disponible, te pedimos tres nuevas y hacemos otra búsqueda sin costo adicional.",
   },
   {
     q: "¿Puedo constituir cualquier tipo de empresa?",
-    a: "Por ahora trabajamos con empresas cuyas actividades no requieren autorizaciones especiales para su constitución. Cuando nos cuentes a qué se dedicará tu empresa, podremos confirmar si podemos gestionar tu caso.",
+    a: "Constituimos compañías anónimas (C.A.) para la mayoría de las actividades comerciales. Si tu actividad necesita un permiso previo de un ente regulador (banca, seguros, hidrocarburos, valores o telecomunicaciones, por ejemplo), tu caso necesita asesoría legal especializada y no un trámite estandarizado.",
   },
   {
-    q: "¿Resuelvex es un bufete de abogados?",
-    a: "No. Resuelvex es un servicio de gestión de trámites para la constitución de empresas. Nos encargamos de preparar la documentación y coordinar el proceso ante el Registro Mercantil. Si tu caso requiere asesoría legal específica, te lo indicaremos antes de continuar.",
+    q: "¿Resuelvex es un escritorio de abogados?",
+    a: "No. Resuelvex es un servicio de gestión de trámites para la constitución de empresas. Preparamos tu documentación a tu medida, conforme a los requisitos del Registro Mercantil y con el visado de abogado que exige la ley para su inscripción, y coordinamos todo el proceso ante el Registro. Si tu actividad necesita un permiso previo de un ente regulador, te avisamos antes de que pagues, porque ese caso requiere asesoría legal especializada.",
   },
 ];
 
@@ -81,7 +89,7 @@ export function Faq() {
             letterSpacing: "-0.025em",
           }}
         >
-          Lo que más nos preguntan
+          Lo que más nos preguntan.
         </Title>
 
         <Text c="gray.7" size="md" lh={1.65}>

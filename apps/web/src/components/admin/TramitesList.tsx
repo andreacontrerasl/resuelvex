@@ -83,8 +83,12 @@ const ESTADO_COLORS: Record<
   string
 > = {
   documento_preparacion: "blue",
+  revision_cliente: "blue",
   firma_coordinada: "indigo",
+  reserva_nombre: "violet",
+  pago_reserva_nombre: "grape",
   en_registro: "teal",
+  pago_registro: "grape",
   observaciones: "orange",
   listo_transito: "cyan",
   entregado: "green",
@@ -455,7 +459,11 @@ export function TramitesList({
 
               const hasObservaciones =
                 estadoTramite ===
-                "observaciones";
+                  "observaciones" ||
+                estadoTramite ===
+                  "pago_reserva_nombre" ||
+                estadoTramite ===
+                  "pago_registro";
 
               return (
                 <Paper

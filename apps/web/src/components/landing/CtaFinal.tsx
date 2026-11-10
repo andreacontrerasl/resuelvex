@@ -31,7 +31,7 @@ export function CtaFinal() {
             letterSpacing: "-0.025em",
           }}
         >
-          Empieza a constituir tu empresa.
+          ¿Listo para formalizar tu negocio?
         </Title>
 
         <Text
@@ -42,22 +42,10 @@ export function CtaFinal() {
           mx="auto"
           maw={500}
         >
-          Elige el plan que necesitas y nosotros te acompañamos durante todo
-          el proceso.
+          Precio fijo desde el inicio, firma donde estés y seguimiento de cada paso. Tú te enfocas en tu negocio y nosotros nos encargamos del resto.
         </Text>
 
         <Group justify="center" gap="sm">
-          <Button
-            component="a"
-            href="#planes"
-            color="navy"
-            radius="xl"
-            size="md"
-            px={28}
-          >
-            Ver planes y precios
-          </Button>
-
           <Button
             component="a"
             href={buildWhatsAppLink(
@@ -65,15 +53,30 @@ export function CtaFinal() {
             )}
             target="_blank"
             rel="noopener noreferrer"
+            color="navy"
+            radius="xl"
+            size="md"
+            px={28}
+          >
+            Escríbenos por WhatsApp
+          </Button>
+
+          <Button
+            component="a"
+            href="#planes"
             variant="outline"
             color="navy"
             radius="xl"
             size="md"
             px={28}
           >
-            Hablar por WhatsApp
+            Ver planes y precios
           </Button>
         </Group>
+
+        <Text c="navy.8" size="xs" mt={14}>
+          Te respondemos el mismo día.
+        </Text>
       </Paper>
     </Container>
   );

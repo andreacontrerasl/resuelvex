@@ -13,6 +13,7 @@ import {
 } from "@mantine/core";
 import {
   IconCheck,
+  IconX,
   IconInfoCircle,
 } from "@tabler/icons-react";
 import classes from "./landing.module.css";
@@ -108,6 +109,36 @@ function FeatureRow({
   );
 }
 
+function ExcludedRow({
+  label,
+  featured,
+}: {
+  label: string;
+  featured?: boolean;
+}) {
+  return (
+    <Group gap={9} wrap="nowrap" align="flex-start">
+      <ThemeIcon
+        color={featured ? "gray.5" : "gray.4"}
+        variant="light"
+        size={20}
+        radius="xl"
+        mt={1}
+      >
+        <IconX size={12} stroke={2.5} />
+      </ThemeIcon>
+
+      <Text
+        size="sm"
+        c={featured ? "gray.5" : "gray.5"}
+        lh={1.45}
+      >
+        {label}
+      </Text>
+    </Group>
+  );
+}
+
 export function Plans() {
   return (
     <Container size="lg" py={96} id="planes">
@@ -119,13 +150,11 @@ export function Plans() {
           c="navy"
           className={classes.sectionTitle}
         >
-          Elige hasta dónde quieres llegar
+          Un precio fijo. Tú decides hasta dónde llegar.
         </Title>
 
         <Text c="gray.7" size="md" lh={1.65}>
-          Todos los planes constituyen tu empresa. La diferencia está
-          en los trámites adicionales que quieres dejar resueltos desde
-          el inicio.
+          Todos los planes constituyen tu empresa. La diferencia está en cuántos trámites quieres dejar resueltos desde el principio. Sin sorpresas y sin gastos escondidos: el precio que ves es el que pagas.       
         </Text>
       </Stack>
 
@@ -208,6 +237,10 @@ export function Plans() {
                     featured={plan.featured}
                   />
                 ))}
+                <ExcludedRow
+                  label="No incluye tasas oficiales"
+                  featured={plan.featured}
+                />
               </Stack>
 
               {/* Button */}

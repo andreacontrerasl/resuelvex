@@ -9,10 +9,14 @@ export interface AuthedRequest extends Request {
   };
 }
 
-export function requireAdmin(req: AuthedRequest, res: Response, next: NextFunction) {
+export function isAdmin(req: AuthedRequest) {
   const userInfo = req.auth?.[`${NAMESPACE}/user`];
   const roles = userInfo?.roles || [];
-  if (!roles.includes("admin")) {
+  return roles.includes("admin");
+}
+
+export function requireAdmin(req: AuthedRequest, res: Response, next: NextFunction) {
+  if (!isAdmin(req)) {
     return res.status(403).json({ error: "No autorizado" });
   }
   next();

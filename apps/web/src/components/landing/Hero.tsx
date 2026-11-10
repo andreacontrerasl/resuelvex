@@ -69,7 +69,7 @@ export function Hero() {
             >
               Nos encargamos de coordinar todo el proceso de constitución por
               ti: documentos, firma y gestión ante el Registro Mercantil. Con
-              un precio claro y seguimiento de tu trámite de principio a fin.
+              un precio claro y seguimiento en vivo de tu trámite de principio a fin.
             </Text>
 
             <Group mb="lg">

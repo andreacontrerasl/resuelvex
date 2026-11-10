@@ -8,9 +8,11 @@ import {
 import {
   IconAlertCircle,
   IconCheck,
+  IconCreditCard,
 } from "@tabler/icons-react";
 import {
   ESTADO_LABELS,
+  ETAPA_BASE,
   type EstadoTramite,
 } from "@resuelvex/shared";
 
@@ -29,11 +31,28 @@ interface StatusStepperProps {
 
 const ETAPAS: EstadoTramite[] = [
   "documento_preparacion",
+  "revision_cliente",
   "firma_coordinada",
+  "reserva_nombre",
   "en_registro",
   "listo_transito",
   "entregado",
 ];
+
+/*
+ * Mensajes mostrados cuando el trámite está en una
+ * sub-etapa de pago (se emite una PUB a mitad de la
+ * etapa principal y el trámite continúa ahí mismo).
+ */
+
+const MENSAJE_PAGO: Partial<
+  Record<EstadoTramite, string>
+> = {
+  pago_reserva_nombre:
+    "Se emitió la planilla (PUB) para pagar la reserva del nombre.",
+  pago_registro:
+    "Se emitió la planilla (PUB) de los derechos de registro.",
+};
 
 /* =========================================================
    HELPERS
@@ -46,14 +65,15 @@ function getIndiceActual(
   }[] = []
 ) {
   /*
-   * Observaciones ocurre durante la etapa
-   * del Registro Mercantil.
+   * Observaciones y las sub-etapas de pago (PUB) ocurren
+   * a mitad de una etapa principal, así que se mapean de
+   * vuelta a esa etapa en vez de tener su propio paso.
    */
 
-  if (estadoActual === "observaciones") {
-    return ETAPAS.indexOf(
-      "en_registro"
-    );
+  const etapaBase = ETAPA_BASE[estadoActual];
+
+  if (etapaBase) {
+    return ETAPAS.indexOf(etapaBase);
   }
 
   const index =
@@ -96,6 +116,12 @@ export function StatusStepper({
   const esObservacion =
     estadoActual === "observaciones";
 
+  const mensajePago =
+    MENSAJE_PAGO[estadoActual];
+
+  const esPagoPendiente =
+    Boolean(mensajePago);
+
   const indexActual =
     getIndiceActual(
       estadoActual,
@@ -118,6 +144,13 @@ export function StatusStepper({
 
           const activeObservation =
             active && esObservacion;
+
+          const activePago =
+            active && esPagoPendiente;
+
+          const activeAlerta =
+            activeObservation ||
+            activePago;
 
           return (
             <Group
@@ -151,15 +184,19 @@ export function StatusStepper({
                       ? "teal"
                       : activeObservation
                         ? "orange"
-                        : active
-                          ? "navy"
-                          : "gray"
+                        : activePago
+                          ? "grape"
+                          : active
+                            ? "navy"
+                            : "gray"
                   }
                   style={{
                     boxShadow: active
                       ? activeObservation
                         ? "0 0 0 4px rgba(230,140,0,0.12)"
-                        : "0 0 0 4px rgba(31,48,94,0.10)"
+                        : activePago
+                          ? "0 0 0 4px rgba(174,62,201,0.12)"
+                          : "0 0 0 4px rgba(31,48,94,0.10)"
                       : undefined,
                   }}
                 >
@@ -171,6 +208,11 @@ export function StatusStepper({
                   ) : activeObservation ? (
                     <IconAlertCircle
                       size={15}
+                      stroke={2}
+                    />
+                  ) : activePago ? (
+                    <IconCreditCard
+                      size={14}
                       stroke={2}
                     />
                   ) : (
@@ -218,9 +260,11 @@ export function StatusStepper({
                   c={
                     activeObservation
                       ? "orange.8"
-                      : active || done
-                        ? "navy.9"
-                        : "gray.7"
+                      : activePago
+                        ? "grape.8"
+                        : active || done
+                          ? "navy.9"
+                          : "gray.7"
                   }
                 >
                   {ESTADO_LABELS[estado]}
@@ -238,8 +282,18 @@ export function StatusStepper({
                   </Text>
                 )}
 
+                {activePago && (
+                  <Text
+                    size="xs"
+                    c="grape.8"
+                    mt={3}
+                  >
+                    {mensajePago}
+                  </Text>
+                )}
+
                 {active &&
-                  !activeObservation && (
+                  !activeAlerta && (
                     <Text
                       size="xs"
                       c="gray.7"

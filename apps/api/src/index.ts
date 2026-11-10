@@ -10,7 +10,10 @@ import { usuariosRouter } from "./routes/usuarios";
 const app = express();
 
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
-app.use(express.json());
+
+// Límite elevado para admitir el documento constitutivo (PDF en base64)
+// que el admin carga al pasar un trámite a revisión del cliente.
+app.use(express.json({ limit: "15mb" }));
 
 app.use((req, _res, next) => {
   console.log(`→ ${req.method} ${req.originalUrl}`);

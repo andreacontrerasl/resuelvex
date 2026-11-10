@@ -15,6 +15,12 @@ const tramiteSchema = new Schema({
     fecha: { type: Date, default: Date.now },
     actualizadoPor: String,
   }],
+  documento: {
+    nombre: String,
+    tipo: String,
+    publicId: String,
+    subidoEn: Date,
+  },
   notasInternas: String,
   notasCliente: String,
 }, { timestamps: true });

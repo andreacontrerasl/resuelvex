@@ -20,6 +20,7 @@ import {
 } from "@resuelvex/shared";
 import { StatusStepper } from "./StatusStepper";
 import { NextStepBanner } from "./NextStepBanner";
+import { DocumentoBanner } from "./DocumentoBanner";
 import { PlanIncluye } from "./PlanIncluye";
 import { getProgreso } from "./statusUtils";
 
@@ -51,8 +52,12 @@ const ESTADO_COLORS: Record<
   string
 > = {
   documento_preparacion: "blue",
+  revision_cliente: "blue",
   firma_coordinada: "indigo",
+  reserva_nombre: "violet",
+  pago_reserva_nombre: "grape",
   en_registro: "teal",
+  pago_registro: "grape",
   observaciones: "orange",
   listo_transito: "cyan",
   entregado: "green",
@@ -262,6 +267,13 @@ export function TramiteCard({
         ================================================= */}
 
         <NextStepBanner estado={estado} />
+
+        {tramite.documento && (
+          <DocumentoBanner
+            tramiteId={tramite._id}
+            documento={tramite.documento}
+          />
+        )}
       </Box>
 
       <Divider />

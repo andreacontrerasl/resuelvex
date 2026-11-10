@@ -28,6 +28,12 @@ export const PLAN_INCLUYE: Record<Plan, string[]> = {
   empresa_100: ["Todo lo de Empresa Completa", "INCES, IVSS, BANAVIH/FAOV", "Patente de industria y comercio"],
 };
 
+export interface TramiteDocumento {
+  nombre: string;
+  tipo: string;
+  subidoEn: string;
+}
+
 export interface Tramite {
   _id: string;
   codigo: string;
@@ -37,6 +43,7 @@ export interface Tramite {
   plan: Plan;
   estado: EstadoTramite;
   estadoHistorial: { estado: EstadoTramite; fecha: string; actualizadoPor: string }[];
+  documento?: TramiteDocumento;
   notasInternas?: string;
   notasCliente?: string;
   createdAt: string;

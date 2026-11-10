@@ -160,7 +160,7 @@ export function WhyUs() {
       </Box>
 
       <Text size="sm" c="gray.2" fw={500}>
-        Acompañamiento durante todo el proceso
+        Te acompañamos de principio a fin
       </Text>
     </Group>
   </Stack>

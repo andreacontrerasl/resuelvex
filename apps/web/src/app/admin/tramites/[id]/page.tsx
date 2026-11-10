@@ -2,6 +2,7 @@ import { Container, Paper, Text } from "@mantine/core";
 import { apiFetch } from "@/lib/api-client";
 import { TramiteDetalleHeader } from "@/components/admin/TramiteDetalleHeader";
 import { EstadoSelector } from "./EstadoSelector";
+import { DocumentoUpload } from "./DocumentoUpload";
 import { TramiteNotas } from "@/components/admin/TramiteNotas";
 
 export default async function TramiteDetallePage({
@@ -15,6 +16,11 @@ export default async function TramiteDetallePage({
   return (
     <Container size="sm" py="xl">
       <TramiteDetalleHeader tramite={tramite} />
+
+      <Paper radius="lg" p="xl" withBorder mb="lg">
+        <Text fw={600} mb="sm">Documento constitutivo</Text>
+        <DocumentoUpload tramiteId={tramite._id} documento={tramite.documento} />
+      </Paper>
 
       <Paper radius="lg" p="xl" withBorder mb="lg">
         <Text fw={600} mb="sm">Cambiar estado</Text>
